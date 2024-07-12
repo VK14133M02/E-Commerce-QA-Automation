@@ -6,6 +6,7 @@ import org.example.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -23,6 +24,8 @@ public class Home {
     @FindBy(id = "twotabsearchtextbox") WebElement searchBox;
 
     @FindBy(id = "nav-search-submit-button") WebElement searchButton;
+
+    @FindBy(xpath = "//a[@data-nav-role='signin']") WebElement signInButton;
 
     SeleniumWrapper seleniumWrapper = new SeleniumWrapper();
 
@@ -58,6 +61,15 @@ public class Home {
         } catch (Exception e) {
             // TODO: handle exception
             return status;
+        }
+    }
+
+    public void signOut(){
+        try{
+            Actions actions = new Actions(driver);
+            actions.moveToElement(signInButton).build().perform();
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 

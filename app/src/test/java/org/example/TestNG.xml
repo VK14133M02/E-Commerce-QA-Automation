@@ -5,14 +5,16 @@
         <classes>
             <class name="org.example.Test.Authentication">
                 <methods>
-                    <include name="login"/> 
+                    <include name="inValidLogin"/>
+                    <include name="validLogin"/>
                 </methods>
             </class>
             <class name="org.example.Test.SearchProduct">
                 <methods>
-                    <include name="searchProduct"/> 
+                    <include name="searchValidProduct"/>
+                    <include name="searchInvalidProduct"/>
                 </methods>
-            </class>            
+            </class>
         </classes>                
     </test>        
 </suite>

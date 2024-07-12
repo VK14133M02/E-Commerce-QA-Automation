@@ -16,8 +16,8 @@ public class SearchProduct {
         driver = driverSingleton.getInstence();                  
     }
 
-    @Test
-    public void searchProduct(){
+    @Test(description = "Search for valid product")
+    public void searchValidProduct(){
         boolean status = false;
 
         Home home = new Home(driver);
@@ -26,12 +26,36 @@ public class SearchProduct {
 
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.amazon.in/");
 
+        SearchResult searchResult = new SearchResult(driver);
+
+        // search the valid item
         status =  home.searchItem("laptop");
 
         Assert.assertTrue(status,"Not able to search the item");
 
+        status = searchResult.verifyValidSearchResult("Laptop");
+
+        Assert.assertTrue(status,"Mismatch in search result");
+    }
+
+    @Test(description = "Search for invalid product")
+    public void searchInvalidProduct(){
+        boolean status = false;
+
+        Home home = new Home(driver);
+
+        home.navigateToHomePage();
+
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.amazon.in/");
+
+        //search the Invalid item
+        status = home.searchItem("oihgfr urhgoir ;hrgf sr uharfo huerf %# hrfor");
+
+        Assert.assertTrue(status,"Not able to search the item");
+
         SearchResult searchResult = new SearchResult(driver);
-        status = searchResult.verifySearchResult("Laptop");
+
+        status = searchResult.verifyInvalidSearchResult("oihgfr urhgoir ;hrgf sr uharfo huerf %# hrfor");
 
         Assert.assertTrue(status,"Mismatch in search result");
     }
