@@ -6,3 +6,5 @@ build
 
 .env
 application.properties
+app\Screenshots
+app\Reports

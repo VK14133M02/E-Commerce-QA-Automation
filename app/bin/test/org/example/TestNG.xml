@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Tests for E-Commerce Regression">
+    <test name="Test for Authentication and SearchProduct of user">               
+        <classes>
+            <class name="org.example.Test.Authentication">
+                <methods>
+                    <include name="inValidLogin"/>
+                    <include name="validLogin"/>
+                </methods>
+            </class>
+            <class name="org.example.Test.SearchProduct">
+                <methods>
+                    <include name="searchValidProduct"/>
+                    <include name="searchInvalidProduct"/>
+                </methods>
+            </class>
+        </classes>                
+    </test>        
+</suite>
