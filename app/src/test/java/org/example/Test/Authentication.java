@@ -35,7 +35,7 @@ public class Authentication {
         driver = driverSingleton.getInstence();   
         
         Properties prop = new Properties();
-        FileInputStream input = new FileInputStream("C:\\Users\\Vikram Kumar\\Desktop\\Assignment\\E-Commerce-QA-Automation\\application.properties");
+        FileInputStream input = new FileInputStream("C:\\Users\\hp\\Desktop\\Assignment\\E-Commerce-QA-Automation\\application.properties");
 
         prop.load(input);
 
